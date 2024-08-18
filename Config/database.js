@@ -1,7 +1,7 @@
 module.exports = {
     dialect: "postgres",
     host: "localhost",
-    username: "root",
+    username: "postgres",
     password: "root",
     database: "api_node",
     define: {

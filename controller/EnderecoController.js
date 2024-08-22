@@ -2,17 +2,17 @@ const { Endereco } = require('../models');
 
 exports.createEndereco = async (req, res) => {
     try {
-        const { cep, logradouro, numero, complemento, bairro, cidade, estado, municipioIBGE } = req.body;
+        const { Cep, Logradouro, Numero, Complemento, Bairro, Cidade, Estado, MunicipioIBGE } = req.body;
 
         const novoEndereco = await Endereco.create({
-            cep,
-            logradouro,
-            numero,
-            complemento,
-            bairro,
-            cidade,
-            estado,
-            municipioIBGE
+            Cep,
+            Logradouro,
+            Numero,
+            Complemento,
+            Bairro,
+            Cidade,
+            Estado,
+            MunicipioIBGE
         });
 
         res.status(201).json(novoEndereco);

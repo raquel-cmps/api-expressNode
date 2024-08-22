@@ -33,12 +33,12 @@ exports.getAllEnderecos = async (req, res) => {
 
 exports.getEnderecoById = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { Id } = req.params;
 
-        const endereco = await Endereco.findByPk(id);
+        const endereco = await Endereco.findByPk(Id);
 
         if (!endereco) {
-            res.status(404).json({ error: 'Endereço não encontrado' });
+            return res.status(404).json({ error: 'Endereço não encontrado' });
         }
 
         res.status(200).json(endereco);
@@ -49,23 +49,23 @@ exports.getEnderecoById = async (req, res) => {
 
 exports.updateEndereco = async (req, res) => {
     try {
-        const { id } = req.params;
-        const { cep, logradouro, numero, complemento, bairro, cidade, estado, municipioIBGE } = req.body;
+        const { Id } = req.params;
+        const { Cep, Logradouro, Numero, Complemento, Bairro, Cidade, Estado, MunicipioIBGE } = req.body;
 
-        const endereco = await Endereco.findByPk(id);
+        const endereco = await Endereco.findByPk(Id);
 
         if (!endereco) {
-            res.status(404).json({ error: 'Endereço não encontrado' });
+            return res.status(404).json({ error: 'Endereço não encontrado' });
         }
 
-        endereco.cep = cep;
-        endereco.logradouro = logradouro;
-        endereco.numero = numero;
-        endereco.complemento = complemento;
-        endereco.bairro = bairro;
-        endereco.cidade = cidade;
-        endereco.estado = estado;
-        endereco.municipioIBGE = municipioIBGE;
+        endereco.Cep = Cep;
+        endereco.Logradouro = Logradouro;
+        endereco.Numero = Numero;
+        endereco.Complemento = Complemento;
+        endereco.Bairro = Bairro;
+        endereco.Cidade = Cidade;
+        endereco.Estado = Estado;
+        endereco.MunicipioIBGE = MunicipioIBGE;
 
         await endereco.save();
 
@@ -77,9 +77,9 @@ exports.updateEndereco = async (req, res) => {
 
 exports.deleteEndereco = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { Id } = req.params;
 
-        const endereco = await Endereco.findByPk(id);
+        const endereco = await Endereco.findByPk(Id);
 
         if (!endereco) {
             res.status(404).json({ error: 'Endereço não encontrado' });

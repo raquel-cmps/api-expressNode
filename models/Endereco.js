@@ -45,7 +45,7 @@ module.exports = (sequelize) => {
         sequelize,
         modelName: 'Endereco',
         tableName: 'enderecos',
-        timestamps: true,
+        timestamps: false,
     });
 
     return Endereco;

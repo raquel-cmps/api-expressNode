@@ -95,7 +95,7 @@ exports.deleteEndereco = async (req, res) => {
 
 exports.recebeCep = async (req, res) => {
     try {
-        const { cep } = req.params;
+        const { cep, numero } = req.body;
 
         const endereco = await consultaCep(cep);
 
@@ -114,7 +114,7 @@ exports.recebeCep = async (req, res) => {
         const novoEndereco = await Endereco.create({
             Cep,
             Logradouro,
-            Numero: 130,
+            Numero: numero,
             Complemento,
             Bairro,
             Cidade,
